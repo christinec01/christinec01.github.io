@@ -27,7 +27,7 @@ export default function Grid({ orientation, children }: Props) {
     <div
       style={{ display: "grid", ...getGridStyle(orientation, children.length) }}
     >
-      {children.map(child => <div style={{}}>{child}</div>)}
+      {children.map((child, i) => <div key={i}>{child}</div>)}
     </div>
   );
 }

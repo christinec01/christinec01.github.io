@@ -6,10 +6,20 @@ body {
 .blue {
   color: #555f67;
 }
+.padding-extra-small {
+  padding: 5px;
+}
 .padding-small {
   padding: 20px;
 }
 .padding-vertical-small {
   padding-top: 20px;
   padding-bottom: 20px;
+}
+.light-grey-outline {
+  border: 1px solid #dadada;
+}
+
+.clickable {
+  cursor: pointer;
 }

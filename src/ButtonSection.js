@@ -3,23 +3,37 @@ import React from "react";
 import Section from "./Section";
 import Grid from "./Grid";
 import Button from "./Button";
-import Dropdown from "./Dropdown";
+import Dropdown, { Dropdown as DropdownForDemo } from "./Dropdown";
 import FlexRow from "./FlexRow";
 import colors from "./colors";
+import CodeDemo from "./CodeDemo";
 import { capitalizeFirstCharacter } from "./FormatTools";
 import type { ColorType } from "./colors";
 
 type Props = {};
-type State = { selectedColor: ColorType };
+type State = {
+  primarySelectedColor: ColorType,
+  secondarySelectedColor: ColorType
+};
 
 export default class ButtonSection extends React.Component<Props, State> {
   state = {
-    selectedColor: "green"
+    primarySelectedColor: "green",
+    secondarySelectedColor: "blue"
   };
 
-  handleColorSelect = (color: ColorType) => {
-    this.setState({ selectedColor: color });
+  handlePrimaryColorSelect = (color: ColorType) => {
+    this.setState({ primarySelectedColor: color });
   };
+
+  handleSecondaryColorSelect = (color: ColorType) => {
+    this.setState({ secondarySelectedColor: color });
+  };
+
+  handleButtonClick = () => {
+    console.log("button clicked");
+  };
+
   render() {
     const colorOptions = Object.keys(colors).map(colorName => ({
       name: capitalizeFirstCharacter(colorName),
@@ -29,28 +43,68 @@ export default class ButtonSection extends React.Component<Props, State> {
       <Section header="Buttons">
         <Grid orientation="horizontal">
           <div>
-            <div>Primary Button</div>
             <div>
               <Button
                 type="primary"
-                text="primary button"
-                color={this.state.selectedColor}
-              />
+                color={this.state.primarySelectedColor}
+                onClick={this.handleButtonClick}
+              >
+                Primary Button
+              </Button>
             </div>
             <div className="padding-vertical-small">
               <FlexRow spacing="medium">
                 <div> Colors:</div>
                 <Dropdown
                   options={colorOptions}
-                  onSelect={this.handleColorSelect}
-                  value={this.state.selectedColor}
+                  onSelect={this.handlePrimaryColorSelect}
+                  value={this.state.primarySelectedColor}
                 />
               </FlexRow>
             </div>
+            <CodeDemo
+              code={
+                <Button
+                  type="primary"
+                  color={this.state.primarySelectedColor}
+                  onClick={function handlePrimaryButtonClick() {}}
+                >
+                  Primary Button
+                </Button>
+              }
+            />
           </div>
           <div>
-            <div>Secondary Button</div>
-            <div>Secondary Button</div>
+            <div>
+              <Button
+                type="secondary"
+                color={this.state.secondarySelectedColor}
+                onClick={this.handleButtonClick}
+              >
+                Secondary Button
+              </Button>
+            </div>
+            <div className="padding-vertical-small">
+              <FlexRow spacing="medium">
+                <div> Colors:</div>
+                <Dropdown
+                  options={colorOptions}
+                  onSelect={this.handleSecondaryColorSelect}
+                  value={this.state.secondarySelectedColor}
+                />
+              </FlexRow>
+            </div>
+            <CodeDemo
+              code={
+                <Button
+                  type="secondary"
+                  color={this.state.secondarySelectedColor}
+                  onClick={function handleSecondaryButtonClick() {}}
+                >
+                  Secondary Button
+                </Button>
+              }
+            />
           </div>
         </Grid>
       </Section>

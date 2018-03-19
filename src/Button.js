@@ -5,9 +5,10 @@ import type { ColorType } from "./colors";
 import "./Button.css";
 
 type Props = {
-  text: string,
+  children: React.Element<*> | string,
   type: "primary" | "secondary",
-  color: ColorType
+  color: ColorType,
+  onClick: () => void
 };
 
 function getButtonStyle(type: "primary" | "secondary", color: ColorType) {
@@ -21,14 +22,21 @@ function getButtonStyle(type: "primary" | "secondary", color: ColorType) {
   if (type === "secondary") {
     return {
       backgroundColor: "transparent",
-      color: `${COLORS[color]}`
+      color: `${COLORS[color]}`,
+      borderSize: "1px",
+      borderStyle: "solid",
+      borderColor: `${COLORS[color]}`
     };
   }
 }
-export default function Button({ text, type, color }: Props) {
+export default function Button({ children, type, color, onClick }: Props) {
   return (
-    <div style={getButtonStyle(type, color)} className={"base-button"}>
-      {text}
+    <div
+      onClick={onClick}
+      style={getButtonStyle(type, color)}
+      className={"base-button"}
+    >
+      {children}
     </div>
   );
 }

@@ -1,0 +1,7 @@
+.dropdown {
+  width: max-content;
+  min-width: 100px;
+}
+.list-item:hover {
+  background-color: rgba(0, 0, 255, 0.153);
+}

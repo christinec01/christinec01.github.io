@@ -20,7 +20,11 @@ type Props = {
 export default function FlexColumn({ spacing, children }: Props) {
   return (
     <div style={columnStyle}>
-      {children.map(child => <div style={SPACING[spacing]}>{child}</div>)}
+      {children.map((child, i) => (
+        <div key={i} style={SPACING[spacing]}>
+          {child}
+        </div>
+      ))}
     </div>
   );
 }
