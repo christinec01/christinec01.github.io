@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="298px" height="293px" viewBox="0 0 298 293" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="3" transform="translate(-46.000000, -4.000000)">
+            <g id="Group" transform="translate(66.000000, 24.000000)">
+                <g id="Group-2">
+                    <circle id="Oval" stroke="#FF2861" stroke-width="38.8760534" cx="126.5" cy="126.5" r="126.5"></circle>
+                    <circle id="Oval-2" stroke="#FF2861" stroke-width="25.4379997" cx="125" cy="125" r="63"></circle>
+                    <polygon id="Triangle" fill="#FFFFFF" points="124 126 278 237 278 15"></polygon>
+                    <text id="a" font-family=".SFNSDisplay, .SF NS Display" font-size="170" font-weight="normal" fill="#FF2861">
+                        <tspan x="194" y="170">a</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
