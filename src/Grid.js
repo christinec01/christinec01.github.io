@@ -6,9 +6,6 @@ type Props = {
   children: Array<React.Element<*>>
 };
 
-const verticalStyle = {};
-const horizontalStyle = {};
-
 function getGridStyle(
   orientation: "horizontal" | "vertical",
   numberOfElements: number
