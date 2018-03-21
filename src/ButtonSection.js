@@ -16,6 +16,25 @@ type State = {
   secondarySelectedColor: ColorType
 };
 
+const primaryButtonExample = `
+<Button
+  type="primary"
+  color={this.state.primarySelectedColor}
+  onClick={function handlePrimaryButtonClick() {}}
+>
+  Primary Button
+</Button>
+`;
+const secondaryButtonExample = `
+<Button
+  type="secondary"
+  color={this.state.secondarySelectedColor}
+  onClick={function handleSecondaryButtonClick() {}}
+>
+  Secondary Button
+</Button>
+`;
+
 export default class ButtonSection extends React.Component<Props, State> {
   state = {
     primarySelectedColor: "green",
@@ -62,17 +81,9 @@ export default class ButtonSection extends React.Component<Props, State> {
                 />
               </FlexRow>
             </div>
-            <CodeDemo
-              code={
-                <Button
-                  type="primary"
-                  color={this.state.primarySelectedColor}
-                  onClick={function handlePrimaryButtonClick() {}}
-                >
-                  Primary Button
-                </Button>
-              }
-            />
+            <div>
+              <CodeDemo code={primaryButtonExample} />
+            </div>
           </div>
           <div>
             <div>
@@ -94,17 +105,7 @@ export default class ButtonSection extends React.Component<Props, State> {
                 />
               </FlexRow>
             </div>
-            <CodeDemo
-              code={
-                <Button
-                  type="secondary"
-                  color={this.state.secondarySelectedColor}
-                  onClick={function handleSecondaryButtonClick() {}}
-                >
-                  Secondary Button
-                </Button>
-              }
-            />
+            <CodeDemo code={secondaryButtonExample} />
           </div>
         </Grid>
       </Section>

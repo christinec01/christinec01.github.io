@@ -1,22 +1,12 @@
 // @flow
 import * as React from "react";
-import reactElementToJSXString from "react-element-to-jsx-string";
+import Highlight from "react-highlight";
 
-export default function CodeDemo({ code }) {
+export default function CodeDemo({ code }: { code: string }) {
   return (
     <pre>
       <code>
-        {reactElementToJSXString(
-          code,
-          // $FlowFixMe
-          {
-            showDefaultProps: false,
-            useBooleanShorthandSyntax: false,
-            functionValue: fn => {
-              return fn.name;
-            }
-          }
-        )}
+        <Highlight className="javascript">{`${code}`}</Highlight>
       </code>
     </pre>
   );

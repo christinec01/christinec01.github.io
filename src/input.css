@@ -1,0 +1,20 @@
+.base-input-style {
+  padding: 5px;
+}
+
+textarea:focus,
+input:focus {
+  color: rgb(140, 140, 140);
+  outline: none;
+  border-bottom: 2px solid #3b9ceb;
+  transition: border-bottom 2s;
+}
+textarea,
+input {
+  color: rgba(225, 225, 225, 0.968);
+  font-weight: 100;
+  border-bottom: 2px solid rgb(216, 216, 216);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}

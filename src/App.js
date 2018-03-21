@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import Section from "./Section";
 import FlexColumn from "./FlexColumn";
 import ButtonSection from "./ButtonSection";
+import ModalSection from "./ModalSection";
+import InputFieldSection from "./InputFieldSection";
+import DropdownSection from "./DropdownSection";
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -14,17 +17,12 @@ class App extends Component {
             <h1 className="App-title">Component Library</h1>
           </header>
         </div>
-
         <div className="padding-small">
           <FlexColumn spacing="small">
             <ButtonSection />
-            {/* <ModalSection /> */}
-            <Section header="Modals">
-              <div>content</div>
-            </Section>
-            <Section header="Input Fields">
-              <div>content</div>
-            </Section>
+            <ModalSection />
+            <DropdownSection />
+            <InputFieldSection />
           </FlexColumn>
         </div>
       </div>
