@@ -21,7 +21,7 @@ export default class DropdownSection extends React.Component<Props, State> {
     return (
       <Section header="Dropdowns">
         <FlexRow spacing="medium">
-          <div> Dropdown:</div>
+          <div> Standard Dropdown:</div>
           <Dropdown
             onSelect={this.handleOptionSelect}
             value={this.state.selectedOption}

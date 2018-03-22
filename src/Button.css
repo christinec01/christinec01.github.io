@@ -7,6 +7,10 @@
   padding: 10px;
   cursor: pointer;
 }
+
+.disabled {
+  cursor: default;
+}
 .base-button:hover {
   box-shadow: inset -4px -5px 15px 4px rgba(0, 0, 0, 0.071);
   transition-duration: 0.2s;

@@ -35,6 +35,16 @@ const secondaryButtonExample = `
 </Button>
 `;
 
+const disabledButtonExample = `
+<Button
+type="primary"
+color={this.state.primarySelectedColor}
+onClick={this.handleButtonClick}
+disabled={true}
+>
+Disabled Button
+</Button>`;
+
 export default class ButtonSection extends React.Component<Props, State> {
   state = {
     primarySelectedColor: "green",
@@ -67,6 +77,7 @@ export default class ButtonSection extends React.Component<Props, State> {
                 type="primary"
                 color={this.state.primarySelectedColor}
                 onClick={this.handleButtonClick}
+                disabled={false}
               >
                 Primary Button
               </Button>
@@ -91,6 +102,7 @@ export default class ButtonSection extends React.Component<Props, State> {
                 type="secondary"
                 color={this.state.secondarySelectedColor}
                 onClick={this.handleButtonClick}
+                disabled={false}
               >
                 Secondary Button
               </Button>
@@ -106,6 +118,31 @@ export default class ButtonSection extends React.Component<Props, State> {
               </FlexRow>
             </div>
             <CodeDemo code={secondaryButtonExample} />
+          </div>
+          <div>
+            <div>
+              <Button
+                type="primary"
+                color={this.state.primarySelectedColor}
+                onClick={this.handleButtonClick}
+                disabled={true}
+              >
+                Disabled Button
+              </Button>
+            </div>
+            <div className="padding-vertical-small">
+              <FlexRow spacing="medium">
+                <div> Colors:</div>
+                <Dropdown
+                  options={colorOptions}
+                  onSelect={this.handlePrimaryColorSelect}
+                  value={this.state.primarySelectedColor}
+                />
+              </FlexRow>
+            </div>
+            <div>
+              <CodeDemo code={disabledButtonExample} />
+            </div>
           </div>
         </Grid>
       </Section>

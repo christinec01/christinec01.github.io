@@ -8,10 +8,21 @@ type Props = {
   children: React.Element<*> | string,
   type: "primary" | "secondary",
   color: ColorType,
-  onClick: () => void
+  onClick: () => void,
+  disabled: boolean
 };
 
-function getButtonStyle(type: "primary" | "secondary", color: ColorType) {
+function getButtonStyle(
+  type: "primary" | "secondary",
+  color: ColorType,
+  disabled: boolean
+) {
+  if (disabled == true) {
+    return {
+      backgroundColor: "#d8d8d8",
+      color: "#c4c4c4"
+    };
+  }
   if (type === "primary") {
     return {
       backgroundColor: `${COLORS[color]}`,
@@ -29,12 +40,18 @@ function getButtonStyle(type: "primary" | "secondary", color: ColorType) {
     };
   }
 }
-export default function Button({ children, type, color, onClick }: Props) {
+export default function Button({
+  children,
+  type,
+  color,
+  onClick,
+  disabled
+}: Props) {
   return (
     <div
       onClick={onClick}
-      style={getButtonStyle(type, color)}
-      className={"base-button"}
+      style={getButtonStyle(type, color, disabled)}
+      className={disabled ? "disabled base-button" : "base-button"}
     >
       {children}
     </div>
