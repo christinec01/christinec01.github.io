@@ -6,8 +6,9 @@ import Icon from "./Icon";
 
 import "./Dropdown.css";
 
+type Option = { name: string, value: * };
 type Props = {
-  options: Array<{ name: string, value: * }>,
+  options: Array<Option>,
   onSelect: (value: *) => void,
   value: *
 };
@@ -20,15 +21,38 @@ export class Dropdown extends React.Component<Props, State> {
   handleClickOutside = () => {
     this.setState({ isOpen: false });
   };
-  handleOptionClick = (value: *) => {
-    this.setState({ isOpen: false });
-    this.props.onSelect(value);
+  handleOptionClick = (selectedValue: *) => {
+    if (!this.props.multi) {
+      this.setState({ isOpen: false });
+      this.props.onSelect(selectedValue);
+    } else {
+      if (this.props.value.includes(selectedValue)) {
+        throw "Cannot select option more than once";
+      }
+      this.props.onSelect([...this.props.value, selectedValue]);
+    }
+  };
+  handleRemoveOption = (selectedValue: *) => {
+    const filteredOptions = this.props.value.filter(
+      option => option !== selectedValue
+    );
+    this.props.onSelect(filteredOptions);
+  };
+  getSelectedOptions = (): Array<Option> => {
+    if (this.props.multi) {
+      return this.props.options.filter(option =>
+        this.props.value.includes(option.value)
+      );
+    } else {
+      const matchingOption = this.props.options.find(
+        option => this.props.value === option.value
+      );
+      return matchingOption ? [matchingOption] : [];
+    }
   };
 
   render() {
-    const selectedOption = this.props.options.find(
-      option => this.props.value === option.value
-    );
+    const selectedOptions = this.getSelectedOptions();
     return (
       <div
         className="light-grey-outline clickable"
@@ -41,7 +65,31 @@ export class Dropdown extends React.Component<Props, State> {
           }
         >
           <FlexRow spacing="none" justifyContent="space-between">
-            <div>{selectedOption ? selectedOption.name : null}</div>
+            <div>
+              {" "}
+              {this.props.multi ? (
+                selectedOptions.map(option => (
+                  <div
+                    style={{
+                      padding: 5,
+                      border: "1px solid lightgray",
+                      borderRadius: 3,
+                      backgroundColor: "rgba(53, 140, 241, .45)"
+                    }}
+                  >
+                    {option.name}
+                    <Icon
+                      onClick={() => this.handleRemoveOption(option.value)}
+                      name="remove"
+                    />
+                  </div>
+                ))
+              ) : (
+                <div>
+                  {selectedOptions.length > 0 ? selectedOptions[0].name : null}
+                </div>
+              )}
+            </div>
             <Icon name={this.state.isOpen ? "upArrow" : "downArrow"} />
           </FlexRow>
         </div>
@@ -51,18 +99,25 @@ export class Dropdown extends React.Component<Props, State> {
             style={{ position: "absolute", minWidth: 150, background: "white" }}
           >
             {this.props.options.map((option, i) => (
-              <div
+              <OptionListItem
                 key={i}
-                className="list-item"
+                name={option.name}
                 onClick={() => this.handleOptionClick(option.value)}
-              >
-                <div className="padding-extra-small">{option.name}</div>
-              </div>
+                selected={this.props.value.includes(option.value)}
+              />
             ))}
           </div>
         ) : null}
       </div>
     );
   }
+}
+
+function OptionListItem({ onClick, name, selected }) {
+  return (
+    <div className="list-item" onClick={!selected ? onClick : () => null}>
+      <div className="padding-extra-small">{name}</div>
+    </div>
+  );
 }
 export default onClickOutside(Dropdown);
