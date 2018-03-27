@@ -10,8 +10,13 @@ const NAME_TO_ICON = {
   remove
 };
 
-type Props = { name: $Keys<typeof NAME_TO_ICON>, onClick?: () => void };
+type Props = {
+  name: $Keys<typeof NAME_TO_ICON>,
+  onClick?: () => void
+};
 
-export default function Icon({ name, onClick }: Props) {
-  return <img src={NAME_TO_ICON[name]} alt={name} onClick={onClick} />;
+export default function Icon({ name, onClick, style }: Props) {
+  return (
+    <img src={NAME_TO_ICON[name]} alt={name} onClick={onClick} style={style} />
+  );
 }

@@ -65,7 +65,9 @@ export class Dropdown extends React.Component<Props, State> {
           }
         >
           <FlexRow spacing="none" justifyContent="space-between">
-            <div>
+            <div
+              style={{ display: "flex", flexDirection: "row", marginRight: 5 }}
+            >
               {" "}
               {this.props.multi ? (
                 selectedOptions.map(option => (
@@ -74,13 +76,16 @@ export class Dropdown extends React.Component<Props, State> {
                       padding: 5,
                       border: "1px solid lightgray",
                       borderRadius: 3,
-                      backgroundColor: "rgba(53, 140, 241, .45)"
+                      backgroundColor: "rgba(53, 140, 241, .45)",
+                      width: "max-content",
+                      whiteSpace: "nowrap"
                     }}
                   >
                     {option.name}
                     <Icon
                       onClick={() => this.handleRemoveOption(option.value)}
                       name="remove"
+                      style={{ paddingLeft: 10 }}
                     />
                   </div>
                 ))
@@ -96,7 +101,12 @@ export class Dropdown extends React.Component<Props, State> {
         {this.state.isOpen ? (
           <div
             className="light-grey-outline"
-            style={{ position: "absolute", minWidth: 150, background: "white" }}
+            style={{
+              position: "absolute",
+              minWidth: 150,
+              background: "white",
+              width: "100%"
+            }}
           >
             {this.props.options.map((option, i) => (
               <OptionListItem
