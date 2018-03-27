@@ -72,7 +72,7 @@ export default class ButtonSection extends React.Component<Props, State> {
       <Section header="Buttons">
         <Grid orientation="horizontal">
           <div>
-            <div>
+            <div className="padding-vertical-small">
               <Button
                 type="primary"
                 color={this.state.primarySelectedColor}
@@ -97,7 +97,7 @@ export default class ButtonSection extends React.Component<Props, State> {
             </div>
           </div>
           <div>
-            <div>
+            <div className="padding-vertical-small">
               <Button
                 type="secondary"
                 color={this.state.secondarySelectedColor}
@@ -120,7 +120,7 @@ export default class ButtonSection extends React.Component<Props, State> {
             <CodeDemo code={secondaryButtonExample} />
           </div>
           <div>
-            <div>
+            <div className="padding-vertical-small">
               <Button
                 type="primary"
                 color={this.state.primarySelectedColor}
