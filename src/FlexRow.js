@@ -4,7 +4,8 @@ import * as React from "react";
 const rowStyle = {
   display: "flex",
   flexDirection: "row",
-  alignItems: "baseline"
+  alignItems: "baseline",
+  width: "100%"
 };
 
 const SPACING = {

@@ -1,6 +1,20 @@
-.dropdown {
+/* .dropdown {
   width: max-content;
   min-width: 100px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 5px;
+} */
+.dropdown {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  min-width: 100px;
+  width: max-content;
+  justify-content: flex-end;
+  padding-right: 5px;
 }
 .list-item:hover {
   background-color: rgba(0, 0, 255, 0.153);

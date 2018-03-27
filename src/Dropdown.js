@@ -59,14 +59,18 @@ export class Dropdown extends React.Component<Props, State> {
         style={{ position: "relative" }}
       >
         <div
-          className="dropdown padding-extra-small"
+          className={"dropdown padding-allaround-extra-small"}
           onClick={() =>
             this.setState(prevState => ({ isOpen: !prevState.isOpen }))
           }
         >
           <FlexRow spacing="none" justifyContent="space-between">
             <div
-              style={{ display: "flex", flexDirection: "row", marginRight: 5 }}
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                marginRight: 5
+              }}
             >
               {" "}
               {this.props.multi ? (
@@ -78,7 +82,8 @@ export class Dropdown extends React.Component<Props, State> {
                       borderRadius: 3,
                       backgroundColor: "rgba(53, 140, 241, .45)",
                       width: "max-content",
-                      whiteSpace: "nowrap"
+                      whiteSpace: "nowrap",
+                      fontSize: 12
                     }}
                   >
                     {option.name}
@@ -104,8 +109,7 @@ export class Dropdown extends React.Component<Props, State> {
             style={{
               position: "absolute",
               minWidth: 150,
-              background: "white",
-              width: "100%"
+              background: "white"
             }}
           >
             {this.props.options.map((option, i) => (
@@ -127,7 +131,7 @@ function OptionListItem({ onClick, name, selected }) {
   return (
     <div className="list-item" onClick={!selected ? onClick : () => null}>
       <div
-        className="padding-extra-small"
+        className="padding-allaround-extra-small"
         style={{ display: "flex", justifyContent: "space-between" }}
       >
         {name}
