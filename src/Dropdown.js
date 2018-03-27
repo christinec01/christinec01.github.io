@@ -126,7 +126,13 @@ export class Dropdown extends React.Component<Props, State> {
 function OptionListItem({ onClick, name, selected }) {
   return (
     <div className="list-item" onClick={!selected ? onClick : () => null}>
-      <div className="padding-extra-small">{name}</div>
+      <div
+        className="padding-extra-small"
+        style={{ display: "flex", justifyContent: "space-between" }}
+      >
+        {name}
+        {selected ? <Icon name="checkMark" /> : null}
+      </div>
     </div>
   );
 }

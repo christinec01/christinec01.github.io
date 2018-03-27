@@ -6,11 +6,20 @@ body {
 .blue {
   color: #555f67;
 }
-.padding-extra-small {
+.padding-allaround-extra-small {
   padding: 5px;
 }
-.padding-small {
+.padding-allaround-small {
   padding: 20px;
+}
+.padding-allaround-medium {
+  padding: 40px;
+}
+.padding-allaround-large {
+  padding: 60px;
+}
+.padding-allaround-xlarge {
+  padding: 80px;
 }
 .padding-vertical-small {
   padding-top: 20px;
