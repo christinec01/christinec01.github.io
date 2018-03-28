@@ -17,14 +17,14 @@ class App extends Component {
         <div className="App">
           <div
             style={{
-              display: "block",
-              marginRight: "auto",
-              marginLeft: "auto",
-              position: "relative",
-              width: "max-content"
+              position: "relative"
             }}
           >
-            <img src={banner} alt="Component Library" />
+            <img
+              src={banner}
+              style={{ width: "100%" }}
+              alt="Component Library"
+            />
             <div
               style={{
                 position: "absolute",
