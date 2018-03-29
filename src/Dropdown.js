@@ -45,7 +45,7 @@ export class Dropdown extends React.Component<Props, State> {
       );
     } else {
       const matchingOption = this.props.options.find(
-        option => this.props.value === option.value
+        option => this.props.value[0] === option.value
       );
       return matchingOption ? [matchingOption] : [];
     }
@@ -116,7 +116,7 @@ export class Dropdown extends React.Component<Props, State> {
               <OptionListItem
                 key={i}
                 name={option.name}
-                onClick={() => this.handleOptionClick(option.value)}
+                onClick={() => this.handleOptionClick([option.value])}
                 selected={this.props.value.includes(option.value)}
               />
             ))}
