@@ -10,7 +10,9 @@ type Option = { name: string, value: * };
 type Props = {
   options: Array<Option>,
   onSelect: (value: *) => void,
-  value: *
+  value: Array<*> | *,
+  multi: boolean,
+  disabled: boolean
 };
 type State = { isOpen: boolean };
 
@@ -38,6 +40,7 @@ export class Dropdown extends React.Component<Props, State> {
     );
     this.props.onSelect(filteredOptions);
   };
+
   getSelectedOptions = (): Array<Option> => {
     if (this.props.multi) {
       return this.props.options.filter(option =>
@@ -45,7 +48,7 @@ export class Dropdown extends React.Component<Props, State> {
       );
     } else {
       const matchingOption = this.props.options.find(
-        option => this.props.value[0] === option.value
+        option => this.props.value === option.value
       );
       return matchingOption ? [matchingOption] : [];
     }
@@ -53,6 +56,8 @@ export class Dropdown extends React.Component<Props, State> {
 
   render() {
     const selectedOptions = this.getSelectedOptions();
+    const { value, options, multi, disabled } = this.props;
+    const { isOpen } = this.state;
     return (
       <div
         className="light-grey-outline clickable"
@@ -60,9 +65,11 @@ export class Dropdown extends React.Component<Props, State> {
       >
         <div
           className={"dropdown padding-allaround-extra-small"}
-          onClick={() =>
-            this.setState(prevState => ({ isOpen: !prevState.isOpen }))
-          }
+          onClick={() => {
+            this.props.disabled
+              ? null
+              : this.setState(prevState => ({ isOpen: !prevState.isOpen }));
+          }}
         >
           <FlexRow spacing="none" justifyContent="space-between">
             <div
@@ -72,10 +79,10 @@ export class Dropdown extends React.Component<Props, State> {
                 marginRight: 5
               }}
             >
-              {" "}
-              {this.props.multi ? (
-                selectedOptions.map(option => (
+              {multi ? (
+                selectedOptions.map((option, i) => (
                   <div
+                    key={i}
                     style={{
                       padding: 5,
                       border: "1px solid lightgray",
@@ -100,10 +107,10 @@ export class Dropdown extends React.Component<Props, State> {
                 </div>
               )}
             </div>
-            <Icon name={this.state.isOpen ? "upArrow" : "downArrow"} />
+            <Icon name={isOpen ? "upArrow" : "downArrow"} />
           </FlexRow>
         </div>
-        {this.state.isOpen ? (
+        {isOpen ? (
           <div
             className="light-grey-outline"
             style={{
@@ -112,12 +119,14 @@ export class Dropdown extends React.Component<Props, State> {
               background: "white"
             }}
           >
-            {this.props.options.map((option, i) => (
+            {options.map((option, i) => (
               <OptionListItem
                 key={i}
                 name={option.name}
-                onClick={() => this.handleOptionClick([option.value])}
-                selected={this.props.value.includes(option.value)}
+                onClick={() => this.handleOptionClick(option.value)}
+                selected={
+                  multi ? value.includes(option.value) : value === option.value
+                }
               />
             ))}
           </div>

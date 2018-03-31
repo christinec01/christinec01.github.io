@@ -20,13 +20,19 @@ function getButtonStyle(
   if (disabled == true) {
     return {
       backgroundColor: "#d8d8d8",
-      color: "#c4c4c4"
+      color: "#c4c4c4",
+      borderColor: "#d8d8d8",
+      borderSize: "1px",
+      borderStyle: "solid"
     };
   }
   if (type === "primary") {
     return {
       backgroundColor: `${COLORS[color]}`,
-      color: "#fff"
+      color: "#fff",
+      borderColor: `${COLORS[color]}`,
+      borderSize: "1px",
+      borderStyle: "solid"
     };
   }
 

@@ -11,26 +11,26 @@ type State = { selectedOption: string, selectedOptions: Array<string> };
 
 const standardDropdownExample = `
 <Dropdown
-onSelect={this.handleOptionSelect}
-value={this.state.selectedOption}
-options={[
-  { name: "Option 1", value: 1 },
-  { name: "Option 2", value: 2 },
-  { name: "Option 3", value: 3 }
-]}
+  onSelect={this.handleOptionSelect}
+  value={this.state.selectedOption}
+  options={[
+    { name: "Option 1", value: 1 },
+    { name: "Option 2", value: 2 },
+    { name: "Option 3", value: 3 }
+  ]}
 />
 `;
 
 const multiSelectDropdownExample = `
 <Dropdown
-multi={true}
-onSelect={this.multiOptionSelect}
-value={this.state.selectedOptions}
-options={[
-  { name: "Option 1", value: 1 },
-  { name: "Option 2", value: 2 },
-  { name: "Option 3", value: 3 }
-]}
+  multi={true}
+  onSelect={this.multiOptionSelect}
+  value={this.state.selectedOptions}
+  options={[
+    { name: "Option 1", value: 1 },
+    { name: "Option 2", value: 2 },
+    { name: "Option 3", value: 3 }
+  ]}
 />
 `;
 export default class DropdownSection extends React.Component<Props, State> {

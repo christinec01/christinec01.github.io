@@ -32,3 +32,10 @@ body {
 .clickable {
   cursor: pointer;
 }
+
+.margin-allaround-extra-small {
+  margin: 5px;
+}
+.margin-allaround-small {
+  margin: 20px;
+}

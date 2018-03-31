@@ -37,12 +37,12 @@ const secondaryButtonExample = `
 
 const disabledButtonExample = `
 <Button
-type="primary"
-color={this.state.primarySelectedColor}
-onClick={this.handleButtonClick}
-disabled={true}
+  type="primary"
+  color={this.state.primarySelectedColor}
+  onClick={this.handleButtonClick}
+  disabled={true}
 >
-Disabled Button
+  Disabled Button
 </Button>`;
 
 export default class ButtonSection extends React.Component<Props, State> {
@@ -134,6 +134,7 @@ export default class ButtonSection extends React.Component<Props, State> {
               <FlexRow spacing="medium">
                 <div> Colors:</div>
                 <Dropdown
+                  disabled={true}
                   options={colorOptions}
                   onSelect={this.handlePrimaryColorSelect}
                   value={this.state.primarySelectedColor}
