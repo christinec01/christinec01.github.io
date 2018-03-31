@@ -23,7 +23,14 @@ export class Dropdown extends React.Component<Props, State> {
   handleClickOutside = () => {
     this.setState({ isOpen: false });
   };
-  handleOptionClick = (selectedValue: *) => {
+  handleOptionClick = (isSelected: boolean, option: *) => {
+    if (!isSelected) {
+      this.handleAddOption(option.value);
+    } else {
+      this.handleRemoveOption(option.value);
+    }
+  };
+  handleAddOption = (selectedValue: *) => {
     if (!this.props.multi) {
       this.setState({ isOpen: false });
       this.props.onSelect(selectedValue);
@@ -95,7 +102,9 @@ export class Dropdown extends React.Component<Props, State> {
                   >
                     {option.name}
                     <Icon
-                      onClick={() => this.handleRemoveOption(option.value)}
+                      onClick={() => {
+                        this.handleRemoveOption(option.value);
+                      }}
                       name="remove"
                       style={{ paddingLeft: 10 }}
                     />
@@ -119,16 +128,19 @@ export class Dropdown extends React.Component<Props, State> {
               background: "white"
             }}
           >
-            {options.map((option, i) => (
-              <OptionListItem
-                key={i}
-                name={option.name}
-                onClick={() => this.handleOptionClick(option.value)}
-                selected={
-                  multi ? value.includes(option.value) : value === option.value
-                }
-              />
-            ))}
+            {options.map((option, i) => {
+              const isSelected = multi
+                ? value.includes(option.value)
+                : value === option.value;
+              return (
+                <OptionListItem
+                  key={i}
+                  name={option.name}
+                  onClick={() => this.handleOptionClick(isSelected, option)}
+                  selected={isSelected}
+                />
+              );
+            })}
           </div>
         ) : null}
       </div>
@@ -138,7 +150,7 @@ export class Dropdown extends React.Component<Props, State> {
 
 function OptionListItem({ onClick, name, selected }) {
   return (
-    <div className="list-item" onClick={!selected ? onClick : () => null}>
+    <div className="list-item" onClick={onClick}>
       <div
         className="padding-allaround-extra-small"
         style={{ display: "flex", justifyContent: "space-between" }}
