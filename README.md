@@ -1,6 +1,7 @@
 # Simple Component Library
 
 The purpose of this library is to provide developers with a toolbox of components whose API's are designed with legibility, ease of use and consistancy in mind. This library is ever-growing. Check back often for new components or contact me with specific requests!
+View a live demo: https://christinec01.github.io/component-library/
 
 ## Getting Started
 
@@ -114,46 +115,54 @@ You can customize the `type`, `color`,`onClick`and optional `disabled` props of 
 
 ## Button Props
 
-| Property |   Type   |   Default |                                                                                                      Description |
-| -------- | :------: | --------: | ---------------------------------------------------------------------------------------------------------------: |
-| type     |  string  | undefined |                                              Sets style of button to solid when primary or hollow when secondary |
-| color    |  string  |      blue |                        Sets the color of the button's background or border and text depending on the button type |
-| onClick  | function | undefined |                                                                                                    Click handler |
-| disabled | boolean  |     false | Disabled the button by preventing the onClick method. Changes styling to gray out the button and removes pointer |
+| Property |   Type   |  Default  | Description                                                                                                      |
+| -------- | :------: | :-------: | ---------------------------------------------------------------------------------------------------------------- |
+| type     |  string  | undefined | Sets style of button to solid when primary or hollow when secondary                                              |
+| color    |  string  |   blue    | Sets the color of the button's background or border and text depending on the button type                        |
+| onClick  | function | undefined | Click handler                                                                                                    |
+| disabled | boolean  |   false   | Disabled the button by preventing the onClick method. Changes styling to gray out the button and removes pointer |
 
-### Break down into end to end tests
+## Dropdown Props
 
-Explain what these tests test and why
+| Property |   Type   |  Default  | Description                                                                |
+| -------- | :------: | :-------: | -------------------------------------------------------------------------- |
+| onSelect | function | undefined | Sets the state of selectedOption equalto the option selected               |
+| value    | function | undefined | Sets the value of the dropdown to the value of state of the selectedOption |
+| options  |  object  | undefined | Array of hashes containing the contents of the dropdown                    |
 
+## TextInputField Props
+
+| Property    |   Type   |   Default   | Description                                   |
+| ----------- | :------: | :---------: | --------------------------------------------- |
+| label       |  string  |    name     | Sets the label of the input field in the form |
+| onChange    | function |  undefined  | Passes the value of e.target.value to props   |
+| placeholder |  string  | placeholder | Optional placeholder text                     |
+| value       |  string  |  undefined  | The value of the input field in state         |
+
+### Methods
+
+Use the `getPaletteColor()` method to return the desired color as a background
+
+```function getPaletteColor(color: ColorType) {
+  return {
+    backgroundColor: `${colors[color]}`
+  };
+}
+<div
+  className="palette-color"
+  style={getPaletteColor("red")}
+>
+  Red
+</div>
 ```
-Give an example
-```
 
-### And coding style tests
+Use the `capitalizeFirstCharacter()` method to capitalize the first letter in a string
 
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
+``capitalizeFirstCharacter(text: string)`
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-<!-- ## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/ChristineC01/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us. -->
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+* [Lodash](https://lodash.com/) - Methods used to create palette table
 
 ## Authors
 
@@ -162,9 +171,3 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 <!-- ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details -->
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
