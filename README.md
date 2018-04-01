@@ -16,21 +16,96 @@ Give examples
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
+Library styles must be imported in the index.js
 
 ```
-Give the example
+import './library/utilities.css'
 ```
 
-And repeat
+Import components from the library in your application as follows:
 
 ```
-until finished
+import Button from 'Button'
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+```
+<Button
+  type="primary"
+  color={this.state.primarySelectedColor}
+  onClick={function handlePrimaryButtonClick() {}}
+>
+  Primary Button
+</Button>
+```
+
+## Usage
+
+This library provides a simple, clear, developer friendly component API making it easy to encorporate into your application. To further ease of use, this library is 100% typed using Flow.
+
+```
+// @flow
+import React from "react";
+import Button from "../library/Button";
+
+type State = {
+  primarySelectedColor: ColorType,
+  secondarySelectedColor: ColorType
+};
+
+  handlePrimaryColorSelect = (color: ColorType) => {
+    this.setState({ primarySelectedColor: color });
+  };
+
+  handleSecondaryColorSelect = (color: ColorType) => {
+    this.setState({ secondarySelectedColor: color });
+  };
+
+  handleButtonClick = () => {
+    console.log("button clicked");
+  };
+
+  render() {
+    const colorOptions = Object.keys(colors).map(colorName => ({
+      name: capitalizeFirstCharacter(colorName),
+      value: colorName
+    }));
+    return (
+      <Section header="Buttons">
+        <CodeDemo code="import Button from 'Button'" />
+        <Grid orientation="horizontal">
+          <div>
+            <div className="padding-top-small">
+              <Button
+                type="primary"
+                color={this.state.primarySelectedColor}
+                onClick={this.handleButtonClick}
+                disabled={false}
+              >
+                Primary Button
+              </Button>
+            </div>
+            <div className="padding-top-small">
+              <FlexRow spacing="medium">
+                <div> Colors:</div>
+                <Dropdown
+                  options={colorOptions}
+                  onSelect={this.handlePrimaryColorSelect}
+                  value={this.state.primarySelectedColor}
+                />
+              </FlexRow>
+            </div>
+            <div className="padding-top-small">
+              <CodeDemo code={primaryButtonExample} />
+            </div>
+          </div>
+         </Grid>
+        </Section>
+       );
+      }
+    }
+```
+
+You can customize the ` type``, `color`,`onClick`and optional`disabled``` props by importing this color palette or your own.
 
 ## Running the tests
 
