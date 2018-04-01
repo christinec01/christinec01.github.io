@@ -1,10 +1,10 @@
 // @flow
 import * as React from "react";
-import TextInputField from "./TextInputField";
-import FilterableInputField from "./FilterableInputField";
-import Section from "./Section";
-import FlexColumn from "./FlexColumn";
-import CodeDemo from "./CodeDemo";
+import TextInputField from "../library/TextInputField";
+import FilterableInputField from "../library/FilterableInputField";
+import Section from "../Section";
+import FlexColumn from "../library/FlexColumn";
+import CodeDemo from "../CodeDemo";
 
 type Props = {};
 type State = { inputFieldValue: ?string, filterableFieldValue: ?string };
@@ -16,18 +16,7 @@ const textInputFieldDropdownExample = `
   value={this.state.inputFieldValue}
 />
 `;
-const list = [
-  "apple",
-  "bannana",
-  "cat",
-  "caterpillar",
-  "dog",
-  "band",
-  "car",
-  "doll",
-  "chase",
-  "chair"
-];
+
 export default class InputFieldSection extends React.Component<Props, State> {
   state = {
     inputFieldValue: "",
@@ -45,6 +34,7 @@ export default class InputFieldSection extends React.Component<Props, State> {
   render() {
     return (
       <Section header="Input Fields">
+        <CodeDemo code="import TextInputField from 'TextInputField'" />
         <FlexColumn spacing="medium">
           <div>
             <TextInputField

@@ -18,6 +18,30 @@ type Props = {
 };
 type State = { isOpen: boolean };
 
+const multiDropdownStyle = {
+  padding: 5,
+  border: "1px solid lightgray",
+  borderRadius: 3,
+  backgroundColor: "rgba(53, 140, 241, .45)",
+  width: "max-content",
+  whiteSpace: "nowrap",
+  marginRight: 3
+};
+const singleDropdownStyle = {
+  position: "absolute",
+  background: "white",
+  display: "flex",
+  flexDirection: "column",
+  width: "-webkit-fill-available"
+};
+const dropdownStyle = {
+  display: "flex",
+  flexDirection: "row",
+  marginRight: 5
+};
+
+const paddingSmall = { paddingLeft: 10 };
+
 export class Dropdown extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
@@ -32,7 +56,7 @@ export class Dropdown extends React.Component<Props, State> {
   handleOptionClick = (isSelected: boolean, option: *) => {
     if (!isSelected) {
       this.handleAddOption(option.value);
-    } else {
+    } else if (this.props.multi) {
       this.handleRemoveOption(option.value);
     }
   };
@@ -41,9 +65,6 @@ export class Dropdown extends React.Component<Props, State> {
       this.setState({ isOpen: false });
       this.props.onSelect(selectedValue);
     } else {
-      if (this.props.value.includes(selectedValue)) {
-        throw "Cannot select option more than once";
-      }
       this.props.onSelect([...this.props.value, selectedValue]);
     }
   };
@@ -71,70 +92,44 @@ export class Dropdown extends React.Component<Props, State> {
     const selectedOptions = this.getSelectedOptions();
     const { value, options, multi, disabled } = this.props;
     const { isOpen } = this.state;
-    const multiDropdownStyle = {
-      padding: 5,
-      border: "1px solid lightgray",
-      borderRadius: 3,
-      backgroundColor: "rgba(53, 140, 241, .45)",
-      width: "max-content",
-      whiteSpace: "nowrap",
-      marginRight: 3
-    };
-    const singleDropdownStyle = {
-      position: "absolute",
 
-      background: "white",
-      display: "flex",
-      flexDirection: "column",
-      width: "-webkit-fill-available"
-    };
     return (
       <div
         className="light-gray-outline clickable"
         style={{ position: "relative" }}
       >
-        {!this.props.hideDropdownInput ? (
-          <div
-            className={"dropdown padding-allaround-extra-small"}
-            onClick={() => {
-              this.props.disabled
-                ? null
-                : this.setState(prevState => ({ isOpen: !prevState.isOpen }));
-            }}
-          >
-            <FlexRow spacing="none" justifyContent="space-between">
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  marginRight: 5
-                }}
-              >
-                {multi ? (
-                  selectedOptions.map((option, i) => (
-                    <div key={i} style={multiDropdownStyle}>
-                      {option.name}
-                      <Icon
-                        onClick={() => {
-                          this.handleRemoveOption(option.value);
-                        }}
-                        name="remove"
-                        style={{ paddingLeft: 10 }}
-                      />
-                    </div>
-                  ))
-                ) : (
-                  <div>
-                    {selectedOptions.length > 0
-                      ? selectedOptions[0].name
-                      : null}
+        <div
+          className={"dropdown padding-allaround-extra-small"}
+          onClick={() => {
+            this.props.disabled
+              ? null
+              : this.setState(prevState => ({ isOpen: !prevState.isOpen }));
+          }}
+        >
+          <FlexRow spacing="none" justifyContent="space-between">
+            <div style={dropdownStyle}>
+              {multi ? (
+                selectedOptions.map((option, i) => (
+                  <div key={i} style={multiDropdownStyle}>
+                    {option.name}
+                    <Icon
+                      onClick={() => {
+                        this.handleRemoveOption(option.value);
+                      }}
+                      name="remove"
+                      style={paddingSmall}
+                    />
                   </div>
-                )}
-              </div>
-              <Icon name={isOpen ? "upArrow" : "downArrow"} />
-            </FlexRow>
-          </div>
-        ) : null}
+                ))
+              ) : (
+                <div>
+                  {selectedOptions.length > 0 ? selectedOptions[0].name : null}
+                </div>
+              )}
+            </div>
+            <Icon name={isOpen ? "upArrow" : "downArrow"} />
+          </FlexRow>
+        </div>
 
         {isOpen ? (
           <div className="light-grey-outline" style={singleDropdownStyle}>

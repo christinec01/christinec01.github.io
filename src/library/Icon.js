@@ -1,9 +1,9 @@
 // @flow
 import * as React from "react";
-import arrow from "./arrow.svg";
-import openArrow from "./openArrow.svg";
-import remove from "./delete.svg";
-import checkMark from "./checkMark.svg";
+import arrow from "./icons/arrow.svg";
+import openArrow from "./icons/openArrow.svg";
+import remove from "./icons/delete.svg";
+import checkMark from "./icons/checkMark.svg";
 
 const NAME_TO_ICON = {
   upArrow: arrow,
@@ -14,7 +14,8 @@ const NAME_TO_ICON = {
 
 type Props = {
   name: $Keys<typeof NAME_TO_ICON>,
-  onClick?: () => void
+  onClick?: () => void,
+  style?: {}
 };
 
 export default function Icon({ name, onClick, style }: Props) {

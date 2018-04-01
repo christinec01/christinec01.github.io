@@ -1,10 +1,10 @@
 // @flow
 import * as React from "react";
-import Dropdown from "./Dropdown";
-import Section from "./Section";
-import Grid from "./Grid";
-import FlexRow from "./FlexRow";
-import CodeDemo from "./CodeDemo";
+import Dropdown from "../library/Dropdown";
+import Section from "../Section";
+import Grid from "../library/Grid";
+import FlexRow from "../library/FlexRow";
+import CodeDemo from "../CodeDemo";
 
 type Props = {};
 type State = { selectedOption: string, selectedOptions: Array<string> };
@@ -51,6 +51,7 @@ export default class DropdownSection extends React.Component<Props, State> {
     return (
       <Section header="Dropdowns">
         <div style={{ width: "67%" }}>
+          <CodeDemo code="import Dropdown from 'Dropdown'" />
           <Grid orientation="horizontal">
             <div className="padding-top-small">
               <FlexRow spacing="medium">

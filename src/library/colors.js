@@ -1,4 +1,4 @@
-export default {
+const colors = {
   red: "#B80000",
   blue: "#5BA7FF",
   orange: "#E08C00",
@@ -18,3 +18,11 @@ export type ColorType =
   | "green"
   | "gray"
   | "lightGray";
+
+export function getPaletteColorStyle(color: ColorType) {
+  return {
+    backgroundColor: `${colors[color]}`
+  };
+}
+
+export default colors;

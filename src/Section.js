@@ -10,7 +10,8 @@ const section = {
 };
 const sectionHeader = {
   fontSize: 24,
-  fontWeight: 500
+  fontWeight: 500,
+  paddingBottom: 10
 };
 
 export default function Section({ header, children }: Props) {

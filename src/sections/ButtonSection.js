@@ -1,14 +1,14 @@
 // @flow
 import React from "react";
-import Section from "./Section";
-import Grid from "./Grid";
-import Button from "./Button";
-import Dropdown, { Dropdown as DropdownForDemo } from "./Dropdown";
-import FlexRow from "./FlexRow";
-import colors from "./colors";
-import CodeDemo from "./CodeDemo";
-import { capitalizeFirstCharacter } from "./FormatTools";
-import type { ColorType } from "./colors";
+import Section from "../Section";
+import Grid from "../library/Grid";
+import Button from "../library/Button";
+import Dropdown, { Dropdown as DropdownForDemo } from "../library/Dropdown";
+import FlexRow from "../library/FlexRow";
+import colors from "../library/colors";
+import CodeDemo from "../CodeDemo";
+import { capitalizeFirstCharacter } from "../library/FormatTools";
+import type { ColorType } from "../library/colors";
 
 type Props = {};
 type State = {
@@ -70,6 +70,7 @@ export default class ButtonSection extends React.Component<Props, State> {
     }));
     return (
       <Section header="Buttons">
+        <CodeDemo code="import Button from 'Button'" />
         <Grid orientation="horizontal">
           <div>
             <div className="padding-top-small">
