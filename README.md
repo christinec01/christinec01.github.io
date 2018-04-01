@@ -15,18 +15,18 @@ What things you need to install the software and how to install them
 Give examples
 ```
 
-### Installing
+### Installing -CANNOT CURRENTLY BE INSTALLED
 
-Library styles must be imported in the index.js
+This library is not able to be installed just yet. Please check back shortly. Once it is an NPM package, the install process will look something like this:
 
 ```
-import './library/utilities.css'
+npm install react-component-library
 ```
 
 Import components from the library in your application as follows:
 
 ```
-import Button from 'Button'
+import {Button} from 'react-component-library'
 ```
 
 ```
