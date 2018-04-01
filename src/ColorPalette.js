@@ -2,19 +2,17 @@
 import * as React from "react";
 import Section from "./Section";
 import FlexRow from "./FlexRow";
-import CodeDemo from "./CodeDemo";
 import COLORS from "./colors";
 import type { ColorType } from "./colors";
 import "./colorPalette.css";
-type Props = {};
-type State = { inputFieldValue: ?string, filterableFieldValue: ?string };
+type Props = { backgroundColor: string };
 
 function getPaletteColor(color: ColorType) {
   return {
     backgroundColor: `${COLORS[color]}`
   };
 }
-export default function ColorPalette({ backgroundColor }) {
+export default function ColorPalette({ backgroundColor }: Props) {
   return (
     <Section header="Color Palette">
       <FlexRow spacing="medium">
