@@ -105,7 +105,7 @@ type State = {
     }
 ```
 
-You can customize the ` type``, `color`,`onClick`and optional`disabled``` props by importing this color palette or your own.
+You can customize the `type`, `color`,`onClick`and optional `disabled` props by importing this color palette or your own.
 
 ## Running the tests
 
