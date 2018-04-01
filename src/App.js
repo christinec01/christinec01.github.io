@@ -5,6 +5,7 @@ import ButtonSection from "./ButtonSection";
 import InputFieldSection from "./InputFieldSection";
 import DropdownSection from "./DropdownSection";
 import ColorPalette from "./ColorPalette";
+import Utilities from "./Utilities";
 import banner from "./banner.png";
 import logo from "./logo.svg";
 import linkedIn from "./linkedIn.svg";
@@ -22,6 +23,7 @@ class App extends Component {
             <DropdownSection />
             <InputFieldSection />
             <ColorPalette />
+            <Utilities />
           </FlexColumn>
         </div>
       </div>

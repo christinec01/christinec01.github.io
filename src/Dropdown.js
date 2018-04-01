@@ -90,7 +90,7 @@ export class Dropdown extends React.Component<Props, State> {
     };
     return (
       <div
-        className="light-grey-outline clickable"
+        className="light-gray-outline clickable"
         style={{ position: "relative" }}
       >
         {!this.props.hideDropdownInput ? (
