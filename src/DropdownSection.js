@@ -50,43 +50,46 @@ export default class DropdownSection extends React.Component<Props, State> {
   render() {
     return (
       <Section header="Dropdowns">
-        <Grid orientation="horizontal">
-          <div className="padding-vertical-small">
-            <FlexRow spacing="medium">
-              <div> Standard Dropdown:</div>
-              <Dropdown
-                onSelect={this.handleOptionSelect}
-                value={this.state.selectedOption}
-                options={[
-                  { name: "Option 1", value: 1 },
-                  { name: "Option 2", value: 2 },
-                  { name: "Option 3", value: 3 }
-                ]}
-              />
-            </FlexRow>
-            <div>
-              <CodeDemo code={standardDropdownExample} />
+        <div style={{ width: "67%" }}>
+          <Grid orientation="horizontal">
+            <div className="padding-top-small">
+              <FlexRow spacing="medium">
+                <div> Standard Dropdown:</div>
+
+                <Dropdown
+                  onSelect={this.handleOptionSelect}
+                  value={this.state.selectedOption}
+                  options={[
+                    { name: "Option 1", value: 1 },
+                    { name: "Option 2", value: 2 },
+                    { name: "Option 3", value: 3 }
+                  ]}
+                />
+              </FlexRow>
+              <div className="padding-top-small">
+                <CodeDemo code={standardDropdownExample} />
+              </div>
             </div>
-          </div>
-          <div className="padding-vertical-small">
-            <FlexRow spacing="medium">
-              <div> Multi-select Dropdown:</div>
-              <Dropdown
-                multi={true}
-                onSelect={this.multiOptionSelect}
-                value={this.state.selectedOptions}
-                options={[
-                  { name: "Option 1", value: 1 },
-                  { name: "Option 2", value: 2 },
-                  { name: "Option 3", value: 3 }
-                ]}
-              />
-            </FlexRow>
-            <div>
-              <CodeDemo code={multiSelectDropdownExample} />
+            <div className="padding-top-small">
+              <FlexRow spacing="medium">
+                <div> Multi-select Dropdown:</div>
+                <Dropdown
+                  multi={true}
+                  onSelect={this.multiOptionSelect}
+                  value={this.state.selectedOptions}
+                  options={[
+                    { name: "Option 1", value: 1 },
+                    { name: "Option 2", value: 2 },
+                    { name: "Option 3", value: 3 }
+                  ]}
+                />
+              </FlexRow>
+              <div className="padding-top-small">
+                <CodeDemo code={multiSelectDropdownExample} />
+              </div>
             </div>
-          </div>
-        </Grid>
+          </Grid>
+        </div>
       </Section>
     );
   }

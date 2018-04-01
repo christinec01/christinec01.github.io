@@ -72,7 +72,7 @@ export default class ButtonSection extends React.Component<Props, State> {
       <Section header="Buttons">
         <Grid orientation="horizontal">
           <div>
-            <div className="padding-vertical-small">
+            <div className="padding-top-small">
               <Button
                 type="primary"
                 color={this.state.primarySelectedColor}
@@ -82,7 +82,7 @@ export default class ButtonSection extends React.Component<Props, State> {
                 Primary Button
               </Button>
             </div>
-            <div className="padding-vertical-small">
+            <div className="padding-top-small">
               <FlexRow spacing="medium">
                 <div> Colors:</div>
                 <Dropdown
@@ -92,12 +92,12 @@ export default class ButtonSection extends React.Component<Props, State> {
                 />
               </FlexRow>
             </div>
-            <div>
+            <div className="padding-top-small">
               <CodeDemo code={primaryButtonExample} />
             </div>
           </div>
           <div>
-            <div className="padding-vertical-small">
+            <div className="padding-top-small">
               <Button
                 type="secondary"
                 color={this.state.secondarySelectedColor}
@@ -107,7 +107,7 @@ export default class ButtonSection extends React.Component<Props, State> {
                 Secondary Button
               </Button>
             </div>
-            <div className="padding-vertical-small">
+            <div className="padding-top-small">
               <FlexRow spacing="medium">
                 <div> Colors:</div>
                 <Dropdown
@@ -117,10 +117,12 @@ export default class ButtonSection extends React.Component<Props, State> {
                 />
               </FlexRow>
             </div>
-            <CodeDemo code={secondaryButtonExample} />
+            <div className="padding-top-small">
+              <CodeDemo code={secondaryButtonExample} />
+            </div>
           </div>
           <div>
-            <div className="padding-vertical-small">
+            <div className="padding-top-small">
               <Button
                 type="primary"
                 color={this.state.primarySelectedColor}
@@ -130,7 +132,7 @@ export default class ButtonSection extends React.Component<Props, State> {
                 Disabled Button
               </Button>
             </div>
-            <div className="padding-vertical-small">
+            <div className="padding-top-small">
               <FlexRow spacing="medium">
                 <div> Colors:</div>
                 <Dropdown
@@ -141,7 +143,7 @@ export default class ButtonSection extends React.Component<Props, State> {
                 />
               </FlexRow>
             </div>
-            <div>
+            <div className="padding-top-small">
               <CodeDemo code={disabledButtonExample} />
             </div>
           </div>

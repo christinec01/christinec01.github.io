@@ -25,6 +25,13 @@ body {
   padding-top: 20px;
   padding-bottom: 20px;
 }
+.padding-bottom-small {
+  padding-bottom: 20px;
+}
+
+.padding-top-small {
+  padding-top: 20px;
+}
 .light-grey-outline {
   border: 1px solid #dadada;
 }

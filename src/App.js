@@ -14,64 +14,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <div className="App">
-          <div
-            style={{
-              position: "relative"
-            }}
-          >
-            <img
-              src={banner}
-              style={{ width: "100%" }}
-              alt="Component Library"
-            />
-            <div
-              style={{
-                position: "absolute",
-                right: 10,
-                bottom: 10,
-                display: "flex"
-              }}
-            >
-              <a
-                href="https://www.linkedin.com/in/ccasebolt/"
-                target="_blank"
-                style={{ textDecoration: "none", paddingLeft: 5 }}
-              >
-                {" "}
-                <img src={linkedIn} style={{ width: 15 }} />
-              </a>
-              <a
-                href="https://github.com/christinec01"
-                target="_blank"
-                style={{ textDecoration: "none", paddingLeft: 5 }}
-              >
-                {" "}
-                <img src={github} style={{ width: 15 }} />
-              </a>
-              <a
-                href="http://www.ccasebolt.com/"
-                target="_blank"
-                style={{ textDecoration: "none", paddingLeft: 5 }}
-              >
-                <span
-                  style={{
-                    color: "#fff",
-
-                    fontWeight: 100
-                  }}
-                >
-                  {" "}
-                  www.ccasebolt.com
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="padding-allaround-xlarge">
-          <FlexColumn spacing="small">
+        <Header />
+        <div className="padding-allaround-large">
+          <FlexColumn spacing="large">
             <ButtonSection />
-
             <DropdownSection />
             <InputFieldSection />
           </FlexColumn>
@@ -82,3 +28,58 @@ class App extends Component {
 }
 
 export default App;
+
+function Header() {
+  return (
+    <div className="App">
+      <div
+        style={{
+          position: "relative"
+        }}
+      >
+        <img src={banner} style={{ width: "100%" }} alt="Component Library" />
+        <div
+          style={{
+            position: "absolute",
+            right: 10,
+            bottom: 10,
+            display: "flex"
+          }}
+        >
+          <a
+            href="https://www.linkedin.com/in/ccasebolt/"
+            target="_blank"
+            style={{ textDecoration: "none", paddingLeft: 5 }}
+          >
+            {" "}
+            <img src={linkedIn} style={{ width: 15 }} />
+          </a>
+          <a
+            href="https://github.com/christinec01"
+            target="_blank"
+            style={{ textDecoration: "none", paddingLeft: 5 }}
+          >
+            {" "}
+            <img src={github} style={{ width: 15 }} />
+          </a>
+          <a
+            href="http://www.ccasebolt.com/"
+            target="_blank"
+            style={{ textDecoration: "none", paddingLeft: 5 }}
+          >
+            <span
+              style={{
+                color: "#fff",
+
+                fontWeight: 100
+              }}
+            >
+              {" "}
+              www.ccasebolt.com
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,31 +1,38 @@
 // @flow
 import * as React from "react";
-import COLORS from "./colors";
-import type { ColorType } from "./colors";
+import FlexRow from "./FlexRow";
 import "./input.css";
 
 type Props = {
   onChange: (value: *) => void,
   label: React.Element<*> | string,
   placeholder: string | null,
-  color: ColorType
+  value: ?string
 };
 
-export default class TextInputField extends React.Component<Props> {
-  handleInputChange = (e: { target: { value: * } }) => {
+type State = {
+  showList: boolean
+};
+
+export default class TextInputField extends React.Component<Props, State> {
+  handleInputChange = (e: { target: { value: string } }) => {
     this.props.onChange(e.target.value);
   };
+
   render() {
+    const { value, label, placeholder } = this.props;
     return (
-      <div>
-        {this.props.label}
+      <FlexRow spacing="medium">
+        <div>{label}</div>
         <input
-          style={{ fontSize: "calc(12px + 0.5vw" }}
+          type="text"
+          style={{ fontSize: 14 }}
+          value={value}
           className="base-input-style"
-          placeholder={this.props.placeholder}
+          placeholder={placeholder}
           onChange={this.handleInputChange}
         />
-      </div>
+      </FlexRow>
     );
   }
 }
