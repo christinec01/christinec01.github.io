@@ -51,6 +51,11 @@ type State = {
   primarySelectedColor: ColorType,
   secondarySelectedColor: ColorType
 };
+export default class ButtonSection extends React.Component<Props, State> {
+  state = {
+    primarySelectedColor: "green",
+    secondarySelectedColor: "blue"
+  };
 
   handlePrimaryColorSelect = (color: ColorType) => {
     this.setState({ primarySelectedColor: color });
@@ -105,11 +110,16 @@ type State = {
     }
 ```
 
-You can customize the `type`, `color`,`onClick`and optional `disabled` props by importing this color palette or your own.
+You can customize the `type`, `color`,`onClick`and optional `disabled` props of the Button component by importing the color palette inclued in this library or your own.
 
-## Running the tests
+## Button Props
 
-Explain how to run the automated tests for this system
+| Property |   Type   |   Default |                                                                                                      Description |
+| -------- | :------: | --------: | ---------------------------------------------------------------------------------------------------------------: |
+| type     |  string  | undefined |                                              Sets style of button to solid when primary or hollow when secondary |
+| color    |  string  |      blue |                        Sets the color of the button's background or border and text depending on the button type |
+| onClick  | function | undefined |                                                                                                    Click handler |
+| disabled | boolean  |     false | Disabled the button by preventing the onClick method. Changes styling to gray out the button and removes pointer |
 
 ### Break down into end to end tests
 
