@@ -4,10 +4,14 @@ export default {
   orange: "#E08C00",
   green: "#49D0A0",
   gray: "#eaeaea",
-  lightGray: "#f5f5f5"
+  lightGray: "#f5f5f5",
+  black: "#000000",
+  white: "#fff"
 };
 
 export type ColorType =
+  | "white"
+  | "black"
   | "red"
   | "blue"
   | "orange"
