@@ -46,7 +46,7 @@ This library provides a simple, clear, developer friendly component API making i
 ```
 // @flow
 import React from "react";
-import Button from "../library/Button";
+import {Button} from 'react-component-library'
 
 type State = {
   primarySelectedColor: ColorType,
