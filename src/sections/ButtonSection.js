@@ -136,12 +136,7 @@ export default class ButtonSection extends React.Component<Props, State> {
             <div className="padding-top-small">
               <FlexRow spacing="medium">
                 <div> Colors:</div>
-                <Dropdown
-                  disabled={true}
-                  options={colorOptions}
-                  onSelect={this.handlePrimaryColorSelect}
-                  value={this.state.primarySelectedColor}
-                />
+                <Dropdown disabled={true} options={colorOptions} />
               </FlexRow>
             </div>
             <div className="padding-top-small">
