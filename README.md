@@ -1,21 +1,9 @@
 # Simple Component Library
 
-The purpose of this library is to provide developers with a toolbox of components whose API's are designed with legibility, ease of use and consistancy in mind. This library is ever-growing. Check back often for new components or contact me with specific requests!
+The purpose of this library is to provide developers with a toolbox of components whose APIs are designed with legibility, ease of use and consistancy in mind. This library is ever-growing. Check back often for new components or contact me with specific requests!
 View a live demo: https://christinec01.github.io/component-library/
 
-## Getting Started
-
-Run NPM install react-component-library
-
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
-### Installing -CANNOT CURRENTLY BE INSTALLED
+### Installing - CANNOT CURRENTLY BE INSTALLED
 
 This library is not able to be installed just yet. Please check back shortly. Once it is an NPM package, the install process will look something like this:
 
