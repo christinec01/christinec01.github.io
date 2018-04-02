@@ -144,7 +144,7 @@ Use the `getPaletteColor()` method to return the desired color as a background c
 
 Use the `capitalizeFirstCharacter()` method to capitalize the first letter in a string
 
-``capitalizeFirstCharacter('hello') === 'Hello'`
+`capitalizeFirstCharacter('hello') === 'Hello'`
 
 ## Built With
 
