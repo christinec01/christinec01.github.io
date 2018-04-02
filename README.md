@@ -1,6 +1,6 @@
 # Simple Component Library
 
-The purpose of this library is to provide developers with a toolbox of components whose APIs are designed with legibility, ease of use and consistancy in mind. This library is ever-growing. Check back often for new components or contact me with specific requests!
+The purpose of this library is to provide developers with a toolbox of components whose APIs are designed with legibility, ease of use and consistency in mind. This library is ever-growing. Check back often for new components or contact me with specific requests!
 View a live demo: https://christinec01.github.io/component-library/
 
 ### Installing - CANNOT CURRENTLY BE INSTALLED
@@ -29,7 +29,7 @@ import {Button} from 'react-component-library'
 
 ## Usage
 
-This library provides a simple, clear, developer friendly component API making it easy to encorporate into your application. To further ease of use, this library is 100% typed using Flow.
+This library provides a simple, clear, developer-friendly component API making it easy to incorporate into your application. To further ease of use, this library is 100% typed using Flow.
 
 ```
 // @flow
