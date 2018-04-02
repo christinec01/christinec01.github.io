@@ -50,20 +50,14 @@ import {Button} from 'react-component-library'
 
 type State = {
   primarySelectedColor: ColorType,
-  secondarySelectedColor: ColorType
 };
 export default class ButtonSection extends React.Component<Props, State> {
   state = {
     primarySelectedColor: "green",
-    secondarySelectedColor: "blue"
   };
 
   handlePrimaryColorSelect = (color: ColorType) => {
     this.setState({ primarySelectedColor: color });
-  };
-
-  handleSecondaryColorSelect = (color: ColorType) => {
-    this.setState({ secondarySelectedColor: color });
   };
 
   handleButtonClick = () => {
@@ -77,7 +71,6 @@ export default class ButtonSection extends React.Component<Props, State> {
     }));
     return (
       <Section header="Buttons">
-        <CodeDemo code="import Button from 'Button'" />
         <Grid orientation="horizontal">
           <div>
             <div className="padding-top-small">
@@ -100,9 +93,6 @@ export default class ButtonSection extends React.Component<Props, State> {
                 />
               </FlexRow>
             </div>
-            <div className="padding-top-small">
-              <CodeDemo code={primaryButtonExample} />
-            </div>
           </div>
          </Grid>
         </Section>
@@ -120,34 +110,30 @@ You can customize the `type`, `color`,`onClick`and optional `disabled` props of 
 | type     |  string  | undefined | Sets style of button to solid when primary or hollow when secondary                                              |
 | color    |  string  |   blue    | Sets the color of the button's background or border and text depending on the button type                        |
 | onClick  | function | undefined | Click handler                                                                                                    |
-| disabled | boolean  |   false   | Disabled the button by preventing the onClick method. Changes styling to gray out the button and removes pointer |
+| disabled | boolean  |   false   | Disables the button by preventing the onClick method. Changes styling to gray out the button and removes pointer |
 
 ## Dropdown Props
 
-| Property |   Type   |  Default  | Description                                                                |
-| -------- | :------: | :-------: | -------------------------------------------------------------------------- |
-| onSelect | function | undefined | Sets the state of selectedOption equalto the option selected               |
-| value    | function | undefined | Sets the value of the dropdown to the value of state of the selectedOption |
-| options  |  object  | undefined | Array of hashes containing the contents of the dropdown                    |
+| Property |   Type   |  Default  | Description                                              |
+| -------- | :------: | :-------: | -------------------------------------------------------- |
+| onSelect | function | undefined | Handler that passes the value of the selected option     |
+| value    |   any    | undefined | The current value of the dropdown                        |
+| options  |  array   | undefined | Array of objects containing the contents of the dropdown |
 
 ## TextInputField Props
 
-| Property    |   Type   |   Default   | Description                                   |
-| ----------- | :------: | :---------: | --------------------------------------------- |
-| label       |  string  |    name     | Sets the label of the input field in the form |
-| onChange    | function |  undefined  | Passes the value of e.target.value to props   |
-| placeholder |  string  | placeholder | Optional placeholder text                     |
-| value       |  string  |  undefined  | The value of the input field in state         |
+| Property    |   Type   |   Default   | Description                                     |
+| ----------- | :------: | :---------: | ----------------------------------------------- |
+| label       |  string  |    name     | Sets the label of the input field in the form   |
+| onChange    | function |  undefined  | Handler that passes the value of the text field |
+| placeholder |  string  | placeholder | Optional placeholder text                       |
+| value       |  string  |  undefined  | The current value of the input field            |
 
 ### Methods
 
-Use the `getPaletteColor()` method to return the desired color as a background
+Use the `getPaletteColor()` method to return the desired color as a background color
 
-```function getPaletteColor(color: ColorType) {
-  return {
-    backgroundColor: `${colors[color]}`
-  };
-}
+```
 <div
   className="palette-color"
   style={getPaletteColor("red")}
@@ -158,7 +144,7 @@ Use the `getPaletteColor()` method to return the desired color as a background
 
 Use the `capitalizeFirstCharacter()` method to capitalize the first letter in a string
 
-``capitalizeFirstCharacter(text: string)`
+``capitalizeFirstCharacter('hello') === 'Hello'`
 
 ## Built With
 
